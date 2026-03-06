@@ -35,34 +35,37 @@ dependencies {
     // No external dependencies required!
 }
 
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.nullpointerbhaiya'
-            artifactId = 'secureprefs'
-            version = '1.0.0'
-            artifact("$buildDir/outputs/aar/secureprefs-release.aar")
-            pom {
-                name = 'SecureSharedPreference'
-                description = 'Encrypted SharedPreferences for Android with hardware-backed security'
-                url = 'https://github.com/nullpointerbhaiya/SecureSharedPreference'
-                licenses {
-                    license {
-                        name = 'The MIT License (MIT)'
-                        url = 'https://github.com/nullpointerbhaiya/SecureSharedPreference/blob/main/LICENSE'
-                    }
-                }
-                developers {
-                    developer {
-                        id = 'nullpointerbhaiya'
-                        name = 'Abhi'
-                        email = 'nullpointerbhaiya@github.com'
-                    }
-                }
-                scm {
-                    connection = 'scm:git@github.com:nullpointerbhaiya/SecureSharedPreference.git'
-                    developerConnection = 'scm:git@github.com:nullpointerbhaiya/SecureSharedPreference.git'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.nullpointerbhaiya'
+                artifactId = 'secureprefs'
+                version = '1.0.0'
+                
+                pom {
+                    name = 'SecureSharedPreference'
+                    description = 'Encrypted SharedPreferences for Android with hardware-backed security'
                     url = 'https://github.com/nullpointerbhaiya/SecureSharedPreference'
+                    licenses {
+                        license {
+                            name = 'The MIT License (MIT)'
+                            url = 'https://github.com/nullpointerbhaiya/SecureSharedPreference/blob/main/LICENSE'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'nullpointerbhaiya'
+                            name = 'Abhi'
+                            email = 'nullpointerbhaiya@github.com'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git@github.com:nullpointerbhaiya/SecureSharedPreference.git'
+                        developerConnection = 'scm:git@github.com:nullpointerbhaiya/SecureSharedPreference.git'
+                        url = 'https://github.com/nullpointerbhaiya/SecureSharedPreference'
+                    }
                 }
             }
         }
